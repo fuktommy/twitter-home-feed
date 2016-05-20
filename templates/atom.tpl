@@ -26,11 +26,7 @@
     <updated>{$entry.created_at|atom_date|escape}</updated>
     {strip}
     <author><name>
-        {if $entry.retweeted_status}
-            {$entry.retweeted_status.user.screen_name|escape} - {$entry.retweeted_status.user.name|escape}
-        {else}
-            {$entry.user.screen_name|escape} - {$entry.user.name|escape}
-        {/if}
+        {$entry.user.screen_name|escape} - {$entry.user.name|escape}
     </name></author>
     {/strip}
     <id>tag:fuktommy.com,2016:twitter/home-feed/{$entry.id_str|escape}</id>
