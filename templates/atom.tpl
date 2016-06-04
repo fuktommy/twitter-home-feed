@@ -13,7 +13,6 @@
   {* <author><name></name></author> *}
   <icon>{$config.site_top}favicon.ico</icon>
 {foreach from=$feed item="entry"}
-  {if empty($entry.user.protected)}
   {include assign="content" file="content.tpl" entry=$entry}
   <entry>
     <title type="html">{$content|strip_tags|regex_replace:'/\s+/':' '|htmlspecialchars_decode:$smarty.const.ENT_QUOTES|regex_replace:'/\s+/':' '|trim|mbtruncate:60|escape|default:"untitled"}</title>
@@ -32,6 +31,5 @@
     <id>tag:fuktommy.com,2016:twitter/home-feed/{$entry.id_str|escape}</id>
     {* <rights></rights> *}
   </entry>
-  {/if}
 {/foreach}
 </feed>
